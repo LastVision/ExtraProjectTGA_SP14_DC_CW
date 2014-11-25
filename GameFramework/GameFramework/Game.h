@@ -2,6 +2,7 @@
 #include <hge.h>
 #include <TimerManager.h>
 #include <InputHandler.h>
+#include "Player.h"
 class Game
 {
 public:
@@ -12,10 +13,8 @@ public:
 	void Update(float aDeltaTime);
 	void Render();
 private:
-	HGE *myHge;
 	CU::InputHandler *myInput;
-	//CU::TimerManager myTimer;
 
-	float myDelta;
+	RPG::Player myPlayer;
 };
 

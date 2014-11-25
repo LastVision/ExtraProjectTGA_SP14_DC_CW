@@ -43,7 +43,7 @@ namespace CommonUtilities
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::VectorOnStack(const VectorOnStack &aVectorOnStack)
 	{
-		this = aVectorOnStack;
+		this->operator=(aVectorOnStack);
 	}
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::~VectorOnStack()

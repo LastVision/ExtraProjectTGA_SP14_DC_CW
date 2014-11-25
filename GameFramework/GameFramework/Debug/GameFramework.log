@@ -1,6 +1,2 @@
-﻿  Window.cpp
-  c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Game.cpp
-  c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Generating Code...
-  GameFramework.vcxproj -> C:\Users\stdaca1\Desktop\HgeGame\Debug\GameFramework.exe
+﻿  Player.cpp
+  GameFramework.vcxproj -> C:\Users\stdaca1\Desktop\ExtraProejct_DC_CW\trunk\GameFramework\Debug\GameFramework.exe

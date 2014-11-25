@@ -2,7 +2,6 @@
 
 Game::Game()
 {
-	myHge = nullptr;
 	myInput = nullptr;
 }
 
@@ -13,16 +12,16 @@ Game::~Game()
 
 void Game::Init(HGE *anHge, CU::InputHandler *anInputHandler)
 {
-	myHge = anHge;
 	myInput = anInputHandler;
+	myPlayer.Init(anHge, "hero.png", 0.0f, 0.0f, 100.0f, 100.0f);
 }
 
 void Game::Update(float aDeltaTime)
 {
-	myDelta = aDeltaTime;
+	myPlayer.Update(aDeltaTime);
 }
 
 void Game::Render()
 {
-
+	myPlayer.Render();
 }

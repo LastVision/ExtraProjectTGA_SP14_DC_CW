@@ -30,7 +30,7 @@ namespace CommonUtilities
 	template <typename Type, int Size>
 	StaticArray<Type, Size>::StaticArray(const StaticArray &aStaticArray)
 	{
-		this = aStaticArray;
+		this->operator=(aStaticArray);
 	}
 	template <typename Type, int Size>
 	StaticArray<Type, Size>::~StaticArray()
