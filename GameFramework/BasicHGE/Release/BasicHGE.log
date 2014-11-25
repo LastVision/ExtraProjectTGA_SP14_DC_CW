@@ -1,0 +1,11 @@
+﻿  Ball.cpp
+  Game.cpp
+  C:\Program Files (x86)\Windows Kits\8.1\Include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Player.cpp
+  Score.cpp
+  Generating code
+  Finished generating code
+hgehelp.lib(hgesprite.obj) : error LNK2026: module unsafe for SAFESEH image.
+hgehelp.lib(hgefont.obj) : error LNK2026: module unsafe for SAFESEH image.
+hgehelp.lib(hgerect.obj) : error LNK2026: module unsafe for SAFESEH image.
+C:\Users\stdaca1\Documents\Visual Studio 2013\Projects\Labb19_Pong\Release\Labb19_Pong.exe : fatal error LNK1281: Unable to generate SAFESEH image.
