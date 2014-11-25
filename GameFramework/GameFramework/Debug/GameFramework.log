@@ -3,4 +3,5 @@
   Game.cpp
   c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Generating Code...
-  GameFramework.vcxproj -> C:\Users\stdaca1\Desktop\GameFramework\Debug\GameFramework.exe
+  LINK : C:\Users\stdaca1\Desktop\Dcdddd\trunk\GameFramework\Debug\GameFramework.exe not found or not built by the last incremental link; performing full link
+  GameFramework.vcxproj -> C:\Users\stdaca1\Desktop\Dcdddd\trunk\GameFramework\Debug\GameFramework.exe
