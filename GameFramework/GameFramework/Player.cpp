@@ -2,12 +2,13 @@
 
 RPG::Player::Player()
 {
-
+	mySprite = nullptr;
 }
 
 RPG::Player::~Player()
 {
-	
+	delete mySprite;
+	mySprite = nullptr;
 }
 
 void RPG::Player::Init(HGE *aHgePointer, std::string aFileName, float aXVelocity, float aYVelocity,
@@ -17,7 +18,7 @@ void RPG::Player::Init(HGE *aHgePointer, std::string aFileName, float aXVelocity
 	SetVelocity(aXVelocity, aYVelocity);
 	HTEXTURE texture = aHgePointer->Texture_Load(aFileName.c_str());
 	mySprite = new hgeSprite(texture, 0, 0, 64, 64);
-	aHgePointer->Texture_Free(texture);
+	aHgePointer->Target_Free(texture);
 }
 
 void RPG::Player::Update(float aDeltaTime)
@@ -28,7 +29,7 @@ void RPG::Player::Update(float aDeltaTime)
 
 void RPG::Player::Render()
 {
-	mySprite->Render(myPosition.myX, myPosition.myY);
+	mySprite->Render(100, 100);
 }
 
 void RPG::Player::SetPosition(const Position &aPosition)

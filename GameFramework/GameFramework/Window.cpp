@@ -21,15 +21,13 @@ void Window::Init(HINSTANCE aInstanceHandler)
 	myHge->System_SetState(HGE_SCREENHEIGHT, 600);
 	myHge->System_SetState(HGE_SCREENBPP, 32);
 	myHge->System_SetState(HGE_TITLE, "Pong 2014 TGA Edition Alpha");
-	myHge->System_SetState(HGE_SHOWSPLASH, false);
 
 	if (myHge->System_Initiate())
 	{
-		myTimer.UpdateTimers();
-		srand(static_cast<unsigned int>(myTimer.GetDeltaTime()));
-		//Game Inits here
 		myInput = new CU::InputHandler(GetActiveWindow(), aInstanceHandler, DISCL_FOREGROUND, DISCL_FOREGROUND);
+		//Game Inits here
 		myGame.Init(myHge, myInput);
+
 		myHge->System_Start();
 	}
 	else
@@ -51,23 +49,20 @@ void Window::Run()
 	myInput = nullptr;
 	myHge->System_Shutdown();
 	myHge->Release();
+	delete myHge;
 }
 
 void Window::Update()
 {
 	myInput->Update();
 	myTimer.UpdateTimers();
-
 	myDelta = static_cast<float>(myTimer.GetDeltaTime() * 0.0001);
 	if (myInput->GetKeyIsDown(DIK_ESCAPE) == true)
 	{
 		myRunningCheck = false;
 		return;
 	}
-	
-	//Game Update Here
 	myGame.Update(myDelta);
-
 	myInput->CapturePreviousInput();
 }
 
@@ -84,7 +79,6 @@ void Window::Render()
 
 int WINAPI WinMain(HINSTANCE aInstanceHandler, HINSTANCE, LPSTR, int)
 {
-
 	Window window;
 	window.Init(aInstanceHandler);
 	window.Run();
