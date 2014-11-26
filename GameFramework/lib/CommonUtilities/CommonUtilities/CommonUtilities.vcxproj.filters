@@ -57,6 +57,9 @@
     <ClInclude Include="VectorOnStack.h">
       <Filter>Arrays</Filter>
     </ClInclude>
+    <ClInclude Include="GrowingArray.h">
+      <Filter>Arrays</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utilities.cpp">

@@ -66,6 +66,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GrowingArray.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="StaticArray.h" />
     <ClInclude Include="Time.h" />

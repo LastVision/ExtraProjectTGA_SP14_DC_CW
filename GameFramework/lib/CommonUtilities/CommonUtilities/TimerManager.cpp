@@ -13,9 +13,21 @@ CU::TimerManager::~TimerManager()
 
 int CU::TimerManager::CreateTimer()
 {
-	int id = myTimers.size();
+	unsigned int id = 0;
+	for (unsigned int i = 0; i < myTimers.size(); ++i)
+	{
+		if (myTimers.at(i).GetID() == id)
+		{
+			id++;
+		}
+		else
+		{
+			break;
+		}
+	}
 	Timer timer(id);
 	timer.Start();
+	
 	myTimers.push_back(timer);
 	return id;
 }
@@ -23,26 +35,44 @@ int CU::TimerManager::CreateTimer()
 void CU::TimerManager::RemoveTimer(const unsigned int anIndex)
 {
 	assert((anIndex > 0 || anIndex < myTimers.size()) && "The index was out of bounds on myTimers vector!");
-	myTimers.erase(myTimers.begin() + anIndex);
+	for (unsigned int i = 0; i < myTimers.size(); ++i)
+	{
+		if (myTimers.at(i).GetID() == anIndex)
+		{
+			myTimers.erase(myTimers.begin() + anIndex);
+		}
+	}
 }
 
 void CU::TimerManager::StartTimer(const unsigned int anIndex)
 {
 	assert((anIndex > 0 || anIndex < myTimers.size()) && "The index was out of bounds on myTimers vector!");
-	myTimers.at(anIndex).Start();
+	for (unsigned int i = 0; i < myTimers.size(); ++i)
+	{
+		if (myTimers.at(i).GetID() == anIndex)
+		{
+			myTimers.at(i).Start();
+		}
+	}
 }
 
 void CU::TimerManager::PauseTimer(const unsigned int anIndex)
 {
 	assert((anIndex > 0 || anIndex < myTimers.size()) && "The index was out of bounds on myTimers vector!");
-	myTimers.at(anIndex).Pause();
+	for (unsigned int i = 0; i < myTimers.size(); ++i)
+	{
+		if (myTimers.at(i).GetID() == anIndex)
+		{
+			myTimers.at(i).Pause();
+		}
+	}
 }
 
 void CU::TimerManager::StartTimers()
 {
 	for (unsigned int i = 0; i < myTimers.size(); ++i)
 	{
-		StartTimer(i);
+		myTimers.at(i).Start();
 	}
 }
 
@@ -50,7 +80,7 @@ void CU::TimerManager::PauseTimers()
 {
 	for (unsigned int i = 0; i < myTimers.size(); ++i)
 	{
-		PauseTimer(i);
+		myTimers.at(i).Pause();
 	}
 }
 
@@ -108,7 +138,14 @@ void CU::TimerManager::PrintMasterTimer()
 const CU::Timer& CU::TimerManager::GetTimer(const unsigned int anIndex) const
 {
 	assert((anIndex > 0 || anIndex < myTimers.size()) && "The index was out of bounds on myTimers vector!");
-	return myTimers.at(anIndex);
+	for (unsigned int i = 0; i < myTimers.size(); ++i)
+	{
+		if (myTimers.at(i).GetID() == anIndex)
+		{
+			return myTimers.at(i);
+		}
+	}
+	return myMasterTimer;
 }
 
 const CU::Timer& CU::TimerManager::GetMasterTimer() const
