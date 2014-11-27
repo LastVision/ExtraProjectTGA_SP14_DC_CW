@@ -29,7 +29,7 @@ void RPG::Player::Update(float aDeltaTime)
 
 void RPG::Player::Render()
 {
-	mySprite->Render(100, 100);
+	mySprite->Render(myPosition.myX, myPosition.myY);
 }
 
 void RPG::Player::SetPosition(const Position &aPosition)

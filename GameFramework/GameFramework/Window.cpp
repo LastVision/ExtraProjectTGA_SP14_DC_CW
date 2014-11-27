@@ -20,7 +20,7 @@ void Window::Init(HINSTANCE aInstanceHandler)
 	myHge->System_SetState(HGE_SCREENWIDTH, 800);
 	myHge->System_SetState(HGE_SCREENHEIGHT, 600);
 	myHge->System_SetState(HGE_SCREENBPP, 32);
-	myHge->System_SetState(HGE_TITLE, "Pong 2014 TGA Edition Alpha");
+	myHge->System_SetState(HGE_TITLE, "Unnamed RPG Alpha v0.1");
 
 	if (myHge->System_Initiate())
 	{
@@ -69,7 +69,7 @@ void Window::Update()
 void Window::Render()
 {
 	myHge->Gfx_BeginScene();
-	myHge->Gfx_Clear(0);
+	myHge->Gfx_Clear(0xAAAAED);
 
 	// Game Render here
 	myGame.Render();
