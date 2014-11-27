@@ -16,18 +16,19 @@ int CU::TimerManager::CreateTimer()
 	unsigned int id = 0;
 	for (unsigned int i = 0; i < myTimers.size(); ++i)
 	{
-		if (myTimers.at(i).GetID() == id)
+		if (myTimers.at(0).GetID() == id)
 		{
-			id++;
+			++id;
 		}
-		else
+		else if (myTimers.at(i).GetID() == id)
 		{
-			break;
+			++id;
+			i = 0;
 		}
 	}
 	Timer timer(id);
 	timer.Start();
-	
+
 	myTimers.push_back(timer);
 	return id;
 }
