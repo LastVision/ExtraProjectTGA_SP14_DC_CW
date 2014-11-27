@@ -14,11 +14,13 @@ Window::~Window()
 
 void Window::Init(HINSTANCE aInstanceHandler)
 {
+	const int screenWidth = 1024;
+	const int screenHeight = screenWidth / 16 * 9;
 	myHge = hgeCreate(HGE_VERSION);
 	myHge->System_SetState(HGE_WINDOWED, true);
 	myHge->System_SetState(HGE_USESOUND, false);
-	myHge->System_SetState(HGE_SCREENWIDTH, 800);
-	myHge->System_SetState(HGE_SCREENHEIGHT, 600);
+	myHge->System_SetState(HGE_SCREENWIDTH, screenWidth);
+	myHge->System_SetState(HGE_SCREENHEIGHT, screenHeight);
 	myHge->System_SetState(HGE_SCREENBPP, 32);
 	myHge->System_SetState(HGE_TITLE, "Unnamed RPG Alpha v0.1");
 

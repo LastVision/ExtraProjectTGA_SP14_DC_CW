@@ -14,31 +14,28 @@ Game::~Game()
 void Game::Init(HGE *anHge, CU::InputHandler *anInputHandler)
 {
 	myInput = anInputHandler;
-	anHge->System_GetState(HGE_SCREENHEIGHT);
-	myPlayer.Init(anHge, "res/textures/hero.png", 0.0f, 0.0f, 100.0f, 100.0f);
+	myPlayer.Init(anHge, "res/textures/hero.png", 0.0f, 0.0f, 
+				  static_cast<float>(anHge->System_GetState(HGE_SCREENWIDTH) / 2) - 64,
+				  static_cast<float>(anHge->System_GetState(HGE_SCREENHEIGHT) / 2) - 64);
 }
 
 void Game::Update(float aDeltaTime)
 {
-	int a = static_cast<int>(aDeltaTime);
-	int b = 0;
-	a += b;
 	if (myInput->GetKeyIsDown(DIK_W) == true)
 	{
-		myPlayer.SetVelocity(0, -5);
-		OutputDebugStringW(L"W");
+		myPlayer.SetVelocity(0, -2);
 	}
 	else if (myInput->GetKeyIsDown(DIK_A) == true)
 	{
-		myPlayer.SetVelocity(-5, 0);
+		myPlayer.SetVelocity(-2, 0);
 	}
 	else if (myInput->GetKeyIsDown(DIK_S) == true)
 	{
-		myPlayer.SetVelocity(0, 5);
+		myPlayer.SetVelocity(0, 2);
 	}
 	else if (myInput->GetKeyIsDown(DIK_D) == true)
 	{
-		myPlayer.SetVelocity(5, 0);
+		myPlayer.SetVelocity(2, 0);
 	}
 	else
 	{
