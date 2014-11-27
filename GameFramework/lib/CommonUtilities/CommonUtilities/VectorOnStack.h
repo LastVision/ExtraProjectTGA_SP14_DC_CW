@@ -43,7 +43,9 @@ namespace CommonUtilities
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::VectorOnStack(const VectorOnStack &aVectorOnStack)
 	{
-
+		mySize = Size;
+		myCounter = 0;
+		myUseSafeModeFlag = UseSafeModeFlag;
 		this->operator=(aVectorOnStack);
 	}
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
@@ -67,18 +69,19 @@ namespace CommonUtilities
 		{
 			memcpy(this->myData, aVectorOnStack.myData, mySize);
 		}
+		myCounter = aVectorOnStack.myCounter;
 		return *this;
 	}
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	inline const Type& VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::operator[](const CountType &anIndex) const
 	{
-		assert((anIndex > 0 || anIndex <= this->myCounter) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex <= this->mySize) && "Index out of bounds");
 		return *(myData + anIndex);
 	}
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	inline Type& VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::operator[](const CountType &anIndex)
 	{
-		assert((anIndex > 0 || anIndex <= this->myCounter) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex <= this->mySize) && "Index out of bounds");
 		return *(myData + anIndex);
 	}
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
@@ -91,7 +94,7 @@ namespace CommonUtilities
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	inline void VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::Insert(CountType anIndex, Type &aObject)
 	{
-		assert((anIndex > 0 || anIndex < this->mySize) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex <= this->myCounter) && "Index out of bounds");
 		for (int i = this->mySize - 1; i > anIndex - 1; --i)
 		{
 			myData[i + 1] = myData[i];
@@ -108,9 +111,9 @@ namespace CommonUtilities
 			{
 				delete myData[i];
 				myData[i] = nullptr;
-				myData[i] = myData[myCounter];
-				delete myData[myCounter];
-				myData[myCounter] = nullptr;
+				myData[i] = myData[myCounter - 1];
+				delete myData[myCounter - 1];
+				myData[myCounter - 1] = nullptr;
 				--myCounter;
 				return;
 			}
@@ -119,32 +122,35 @@ namespace CommonUtilities
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	inline void VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::DeleteCyclicAtIndex(CountType anIndex)
 	{
-		assert((anIndex > 0 || anIndex < this->myCounter) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex <= this->myCounter) && "Index out of bounds");
 		delete myData[anIndex];
 		myData[anIndex] = nullptr;
-		myData[anIndex] = myData[myCounter];
-		delete myData[myCounter];
-		myData[myCounter] = nullptr;
+		myData[anIndex] = myData[myCounter - 1];
+		delete myData[myCounter - 1];
+		myData[myCounter - 1] = nullptr;
 		--myCounter;
 	}
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	inline void VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::RemoveCyclic(const Type &aObject)
 	{
+		bool foundObject = false;
 		for (int i = 0; i < mySize; ++i)
 		{
 			if (this->myData[i] == aObject)
 			{
-				myData[i] = myData[myCounter];
+				foundObject = true;
+				myData[i] = myData[myCounter - 1];
 				--myCounter;
 				return;
 			}
 		}
+		assert(foundObject == true && "Object not found!");
 	}
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	inline void VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::RemoveCyclicAtIndex(CountType anIndex)
 	{
-		assert((anIndex > 0 || anIndex < this->myCounter) && "Index out of bounds");
-		myData[anIndex] = myData[myCounter];
+		assert((anIndex >= 0 && anIndex <= this->myCounter) && "Index out of bounds");
+		myData[anIndex] = myData[myCounter - 1];
 		--myCounter;
 
 	}

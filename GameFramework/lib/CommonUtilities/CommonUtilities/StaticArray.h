@@ -18,8 +18,8 @@ namespace CommonUtilities
 		inline void Insert(int anIndex, Type &aObject);
 		inline void DeleteAll();
 	private:
-		int mySize = Size;
-		Type myData[Size];
+		int mySize = Size + 1;
+		Type myData[Size + 1];
 	};
 
 	template <typename Type, int Size>
@@ -50,19 +50,19 @@ namespace CommonUtilities
 	template <typename Type, int Size>
 	inline const Type& StaticArray<Type, Size>::operator[](const int &anIndex) const
 	{
-		assert((anIndex > 0 || anIndex < this->mySize) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex < this->mySize) && "Index out of bounds");
 		return *(myData + anIndex);
 	}
 	template <typename Type, int Size>
 	inline Type& StaticArray<Type, Size>::operator[](const int &anIndex)
 	{
-		assert((anIndex > 0 || anIndex < this->mySize) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex < this->mySize) && "Index out of bounds");
 		return *(myData + anIndex);
 	}
 	template <typename Type, int Size>
 	inline void StaticArray<Type, Size>::Insert(int anIndex, Type &aObject)
 	{
-		assert((anIndex > 0 || anIndex < this->mySize) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex < this->mySize) && "Index out of bounds");
 		for (int i = this->mySize - 1; i > anIndex - 1; --i)
 		{
 			myData[i + 1] = myData[i];

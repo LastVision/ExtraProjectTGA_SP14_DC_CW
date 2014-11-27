@@ -56,12 +56,16 @@ namespace CommonUtilities
 	GrowingArray<ObjectType, SizeType>::GrowingArray(SizeType aNrOfRecomendedItems, bool aUseSafeModeFlag)
 	{
 		myAlocatedSize = aNrOfRecomendedItems;
+		myCurrentSize = 0;
 		myUseSafeModeFlag = aUseSafeModeFlag;
 		myData = new ObjectType[myAlocatedSize + 1];
 	}
 	template <typename ObjectType, typename SizeType = unsigned short>
 	GrowingArray<ObjectType, SizeType>::GrowingArray(const GrowingArray &aGrowingArray)
 	{
+		myAlocatedSize = aNrOfRecomendedItems;
+		myCurrentSize = 0;
+		myUseSafeModeFlag = aUseSafeModeFlag;
 		this->operator=(aGrowingArray);
 	}
 	template <typename ObjectType, typename SizeType = unsigned short>
@@ -75,9 +79,13 @@ namespace CommonUtilities
 	template <typename ObjectType, typename SizeType = unsigned short>
 	GrowingArray<ObjectType, SizeType>& GrowingArray<ObjectType, SizeType>::operator=(const GrowingArray &aGrowingArray)
 	{
+		if (myAlocatedSize <= aGrowingArray.myAlocatedSize)
+		{
+			Resize(aGrowingArray.myAlocatedSize * 2);
+		}
 		if (myUseSafeModeFlag == true)
 		{
-			for (SizeType i = 0; i < myCurrentSize; ++i)
+			for (int i = 0; i < this->myAlocatedSize; ++i)
 			{
 				this->myData[i] = aGrowingArray.myData[i];
 			}
@@ -87,8 +95,9 @@ namespace CommonUtilities
 		}
 		else
 		{
-			memcpy(myData, aGrowingArray.myData, myCurrentSize);
+			memcpy(this->myData, aGrowingArray.myData, myAlocatedSize);
 		}
+		myCurrentSize = aGrowingArray.myCurrentSize;
 		return *this;
 	}
 	template <typename ObjectType, typename SizeType = unsigned short>
@@ -111,13 +120,13 @@ namespace CommonUtilities
 	template <typename ObjectType, typename SizeType = unsigned short>
 	inline ObjectType& GrowingArray<ObjectType, SizeType>::operator[](const SizeType &anIndex)
 	{
-		assert((anIndex > 0 || anIndex <= this->myCurrentSize) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex <= this->myCounter) && "Index out of bounds");
 		return *(myData + anIndex);
 	}
 	template <typename ObjectType, typename SizeType = unsigned short>
 	inline const ObjectType& GrowingArray<ObjectType, SizeType>::operator[](const SizeType &anIndex) const
 	{
-		assert((anIndex > 0 || anIndex <= this->myCurrentSize) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex <= this->myCounter) && "Index out of bounds");
 		return *(myData + anIndex);
 	}
 	template <typename ObjectType, typename SizeType = unsigned short>
@@ -133,7 +142,7 @@ namespace CommonUtilities
 	template <typename ObjectType, typename SizeType = unsigned short>
 	inline void GrowingArray<ObjectType, SizeType>::Insert(SizeType anIndex, ObjectType &aObject)
 	{
-		assert((anIndex > 0 || anIndex < this->myAlocatedSize) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex <= this->myCounter) && "Index out of bounds");
 		for (SizeType i = this->myAlocatedSize - 1; i > anIndex - 1; --i)
 		{
 			myData[i + 1] = myData[i];
@@ -165,7 +174,7 @@ namespace CommonUtilities
 	template <typename ObjectType, typename SizeType = unsigned short>
 	inline void GrowingArray<ObjectType, SizeType>::DeleteCyclicAtIndex(SizeType anIndex)
 	{
-		assert((anIndex > 0 || anIndex < this->myCurrentSize) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex <= this->myCounter) && "Index out of bounds");
 		delete myData[anIndex];
 		myData[anIndex] = nullptr;
 		myData[anIndex] = myData[myCurrentSize - 1];
@@ -189,7 +198,7 @@ namespace CommonUtilities
 	template <typename ObjectType, typename SizeType = unsigned short>
 	inline void GrowingArray<ObjectType, SizeType>::RemoveCyclicAtIndex(SizeType anIndex)
 	{
-		assert((anIndex > 0 || anIndex < this->myCurrentSize) && "Index out of bounds");
+		assert((anIndex >= 0 && anIndex <= this->myCounter) && "Index out of bounds");
 		myData[anIndex] = myData[myCurrentSize - 1];
 		--myCurrentSize;
 	}
