@@ -1,0 +1,26 @@
+﻿Build started 2014-11-28 16:08:56.
+     1>Project "D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\GameFramework\GameFramework.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Dev\Programs\Visual Studio 2013\VC\bin\CL.exe /c /I..\lib\CommonUtilities\CommonUtilities /I..\lib\hge181\include /Zi /nologo /W4 /WX /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp Player.cpp Tile.cpp Window.cpp
+         Game.cpp
+         D:\Dev\Lib\DirectXSDK\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+         Player.cpp
+         Tile.cpp
+         Window.cpp
+         D:\Dev\Lib\DirectXSDK\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+       Link:
+         D:\Dev\Programs\Visual Studio 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Release\GameFramework.exe" /NOLOGO /LIBPATH:..\lib\hge181\lib\vc hge.lib hgehelp.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libc.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Release\GameFramework.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Release\GameFramework.lib" /MACHINE:X86 /SAFESEH Release\Game.obj
+         Release\Player.obj
+         Release\Tile.obj
+         Release\Window.obj
+         "D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Release\CommonUtilities.lib"
+         Generating code
+         Finished generating code
+     1>hgehelp.lib(hgesprite.obj) : error LNK2026: module unsafe for SAFESEH image.
+     1>hgehelp.lib(hgerect.obj) : error LNK2026: module unsafe for SAFESEH image.
+     1>D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Release\GameFramework.exe : fatal error LNK1281: Unable to generate SAFESEH image.
+     1>Done Building Project "D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\GameFramework\GameFramework.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:03.37

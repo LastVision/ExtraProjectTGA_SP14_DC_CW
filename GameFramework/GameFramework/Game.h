@@ -2,7 +2,9 @@
 #include <hge.h>
 #include <TimerManager.h>
 #include <InputHandler.h>
+#include <vector>
 #include "Player.h"
+#include "Tile.h"
 class Game
 {
 public:
@@ -13,8 +15,11 @@ public:
 	void Update(float aDeltaTime);
 	void Render();
 
-	RPG::Player myPlayer;
+	
 private:
 	CU::InputHandler *myInput;
+	RPG::Player myPlayer;
+	RPG::Tile myGrassTile;
+	std::vector<RPG::Tile> myGrassTiles;
 };
 

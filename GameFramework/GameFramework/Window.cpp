@@ -47,11 +47,9 @@ void Window::Run()
 		Update();
 		Render();
 	}
-	delete myInput;
-	myInput = nullptr;
+	
 	myHge->System_Shutdown();
 	myHge->Release();
-	delete myHge;
 }
 
 void Window::Update()
