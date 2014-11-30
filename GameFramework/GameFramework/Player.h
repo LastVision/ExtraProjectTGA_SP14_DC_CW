@@ -1,5 +1,6 @@
 #pragma once
 #include <hgesprite.h>
+#include "Sprite.h"
 #include <string>
 namespace RPG
 {

@@ -22,6 +22,15 @@
     <Filter Include="GameObjects\Source Files">
       <UniqueIdentifier>{5f2d2342-24e5-4479-b742-998e26b92cb3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{fd889cc9-0735-435f-a645-e9135ddb717a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Header Files">
+      <UniqueIdentifier>{7cf79fd0-f957-48c2-8caa-3578e8a69634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Source Files">
+      <UniqueIdentifier>{3329e7e5-5442-4273-b90a-84437b8eadfe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -36,6 +45,9 @@
     <ClInclude Include="Player.h">
       <Filter>GameObjects\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Render\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -49,6 +61,9 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>GameObjects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Render\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
