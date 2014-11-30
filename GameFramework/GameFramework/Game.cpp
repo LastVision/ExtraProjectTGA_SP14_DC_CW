@@ -3,6 +3,7 @@
 Game::Game()
 {
 	myInput = nullptr;
+	
 }
 
 Game::~Game()
@@ -13,6 +14,7 @@ Game::~Game()
 
 void Game::Init(HGE *anHge, CU::InputHandler *anInputHandler)
 {
+	myGrassTiles.reserve((anHge->System_GetState(HGE_SCREENWIDTH) * anHge->System_GetState(HGE_SCREENHEIGHT))/16);
 	myInput = anInputHandler;
 	myPlayer.Init(anHge, "res/textures/hero.png", 0.0f, 0.0f, 
 				  static_cast<float>(anHge->System_GetState(HGE_SCREENWIDTH) / 2) - 64,
@@ -20,8 +22,8 @@ void Game::Init(HGE *anHge, CU::InputHandler *anInputHandler)
 	myGrassTile.Init(anHge, "res/textures/spritesheet.png", 10, 10);
 	for (int i = 0; i < 100; ++i)
 	{
-		RPG::Tile tempGrassTile;
-		myGrassTiles.push_back(tempGrassTile);
+		RPG::Tile tempTile;
+		myGrassTiles.push_back(tempTile);
 	}
 	int x = 0;
 	int y = 0;
