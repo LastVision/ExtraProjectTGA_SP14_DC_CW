@@ -13,25 +13,34 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Timer">
+    <Filter Include="Math">
+      <UniqueIdentifier>{0728635c-11ab-4493-b7e4-a1b6ed936db8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Vector">
+      <UniqueIdentifier>{c4a7c26c-400f-4927-8a3e-c3dcc2ea274e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{ccd66999-7f4a-4192-bb68-ebe81bd9df7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\Timer">
       <UniqueIdentifier>{afee9429-48ac-4c51-ae88-dbea22a2bf01}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Timer\Header Files">
+    <Filter Include="Utilities\Timer\Header Files">
       <UniqueIdentifier>{b1ebf78a-1499-4ff9-924b-6b3443b86129}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Timer\Source Files">
+    <Filter Include="Utilities\Timer\Source Files">
       <UniqueIdentifier>{b0e6d79b-4adf-4ec9-b1be-526cd4b30cea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Input">
+    <Filter Include="Utilities\Input">
       <UniqueIdentifier>{90f517f8-8814-4c1f-bbbe-06bedb2f7af8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Input\Header Files">
+    <Filter Include="Utilities\Input\Header Files">
       <UniqueIdentifier>{0fe7f4f6-0dc6-425c-a7b5-9654b666adb5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Input\Source Files">
+    <Filter Include="Utilities\Input\Source Files">
       <UniqueIdentifier>{1bc5e5bf-928d-4a8a-97c2-f6259bdc9678}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Arrays">
+    <Filter Include="Utilities\Arrays">
       <UniqueIdentifier>{7f1f48fc-e102-4ebf-ae63-64a2c0850709}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -40,25 +49,46 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Time.h">
-      <Filter>Timer\Header Files</Filter>
+      <Filter>Utilities\Timer\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Timer\Header Files</Filter>
+      <Filter>Utilities\Timer\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TimerManager.h">
-      <Filter>Timer\Header Files</Filter>
+      <Filter>Utilities\Timer\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InputHandler.h">
-      <Filter>Input\Header Files</Filter>
+      <Filter>Utilities\Input\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StaticArray.h">
-      <Filter>Arrays</Filter>
+      <Filter>Utilities\Arrays</Filter>
     </ClInclude>
     <ClInclude Include="VectorOnStack.h">
-      <Filter>Arrays</Filter>
+      <Filter>Utilities\Arrays</Filter>
     </ClInclude>
     <ClInclude Include="GrowingArray.h">
-      <Filter>Arrays</Filter>
+      <Filter>Utilities\Arrays</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
+      <Filter>Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2decl.h">
+      <Filter>Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3decl.h">
+      <Filter>Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4decl.h">
+      <Filter>Math\Vector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -66,16 +96,16 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Time.cpp">
-      <Filter>Timer\Source Files</Filter>
+      <Filter>Utilities\Timer\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Timer\Source Files</Filter>
+      <Filter>Utilities\Timer\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TimerManager.cpp">
-      <Filter>Timer\Source Files</Filter>
+      <Filter>Utilities\Timer\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InputHandler.cpp">
-      <Filter>Input\Source Files</Filter>
+      <Filter>Utilities\Input\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,18 +1,1 @@
-﻿Build started 2014-11-28 16:13:51.
-     1>Project "D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\lib\CommonUtilities\CommonUtilities\CommonUtilities.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         D:\Dev\Programs\Visual Studio 2013\VC\bin\CL.exe /c /ZI /nologo /W4 /WX /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt InputHandler.cpp
-         InputHandler.cpp
-         d:\dev\lib\directxsdk\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-       Lib:
-         D:\Dev\Programs\Visual Studio 2013\VC\bin\Lib.exe /OUT:"D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Debug\CommonUtilities.lib" /NOLOGO Debug\InputHandler.obj
-         Debug\Time.obj
-         Debug\Timer.obj
-         Debug\TimerManager.obj
-         Debug\Utilities.obj
-         CommonUtilities.vcxproj -> D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Debug\CommonUtilities.lib
-     1>Done Building Project "D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\lib\CommonUtilities\CommonUtilities\CommonUtilities.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.15
+﻿  CommonUtilities.vcxproj -> c:\users\stdaca1\documents\visual studio 2013\Projects\MathLabb1_Vector\Debug\CommonUtilities.lib

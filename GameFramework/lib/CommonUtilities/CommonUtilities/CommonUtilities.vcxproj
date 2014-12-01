@@ -73,6 +73,13 @@
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TimerManager.h" />
     <ClInclude Include="Utilities.h" />
+    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="Vector2decl.h" />
+    <ClInclude Include="Vector3.h" />
+    <ClInclude Include="Vector3decl.h" />
+    <ClInclude Include="Vector4.h" />
+    <ClInclude Include="Vector4decl.h" />
     <ClInclude Include="VectorOnStack.h" />
   </ItemGroup>
   <ItemGroup>
