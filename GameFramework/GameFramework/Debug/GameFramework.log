@@ -1,27 +1,9 @@
-﻿Build started 2014-11-30 20:32:02.
-     1>Project "D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\GameFramework\GameFramework.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         D:\Dev\Programs\Visual Studio 2013\VC\bin\CL.exe /c /I..\lib\CommonUtilities\CommonUtilities /I..\lib\hge181\include /ZI /nologo /W4 /WX /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp Player.cpp Sprite.cpp Tile.cpp Window.cpp
-         Sprite.cpp
-         Player.cpp
-         Game.cpp
-         d:\dev\lib\directxsdk\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-         Generating Code...
-         Compiling...
-         Window.cpp
-         d:\dev\lib\directxsdk\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-         Tile.cpp
-         Generating Code...
-       Link:
-         D:\Dev\Programs\Visual Studio 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Debug\GameFramework.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\lib\hge181\lib\vc hge.lib hgehelp.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libc.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Debug\GameFramework.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Debug\GameFramework.lib" /MACHINE:X86 Debug\Game.obj
-         Debug\Player.obj
-         Debug\Sprite.obj
-         Debug\Tile.obj
-         Debug\Window.obj
-         "D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Debug\CommonUtilities.lib"
-         GameFramework.vcxproj -> D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\Debug\GameFramework.exe
-     1>Done Building Project "D:\Dev\Workshop\Visual Studio\Git_SVN_other\RpgGame\trunk\GameFramework\GameFramework\GameFramework.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:06.11
+﻿  Window.cpp
+  c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Tile.cpp
+  Sprite.cpp
+  Player.cpp
+c:\users\stdaca1\desktop\extraproejct_dc_cw\trunk\gameframework\gameframework\player.cpp(20): error C2661: 'RPG::Sprite::Sprite' : no overloaded function takes 5 arguments
+  Game.cpp
+  c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
