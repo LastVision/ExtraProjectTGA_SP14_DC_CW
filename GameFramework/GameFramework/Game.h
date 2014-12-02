@@ -12,14 +12,12 @@ public:
 	~Game();
 
 	void Init(HGE *anHge, CU::InputHandler *anInputHandler);
-	void Update(float aDeltaTime);
+	bool Update(float aDeltaTime);
 	void Render();
-
-	
 private:
 	CU::InputHandler *myInput;
 	RPG::Player myPlayer;
 	RPG::Tile myGrassTile;
-	std::vector<RPG::Tile> myGrassTiles;
+	std::vector<RPG::Tile*> myGrassTiles;
 };
 

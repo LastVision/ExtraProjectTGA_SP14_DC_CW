@@ -1,9 +1,8 @@
-﻿  Window.cpp
-  c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Tile.cpp
-  Sprite.cpp
-  Player.cpp
-c:\users\stdaca1\desktop\extraproejct_dc_cw\trunk\gameframework\gameframework\player.cpp(20): error C2661: 'RPG::Sprite::Sprite' : no overloaded function takes 5 arguments
-  Game.cpp
+﻿  Game.cpp
   c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Generating Code...
+  Compiling...
+  Window.cpp
+  c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
+  GameFramework.vcxproj -> C:\Users\stdaca1\Desktop\ExtraProejct_DC_CW\trunk\GameFramework\Debug\GameFramework.exe

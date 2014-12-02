@@ -20,16 +20,16 @@ void Game::Init(HGE *anHge, CU::InputHandler *anInputHandler)
 				  static_cast<float>(anHge->System_GetState(HGE_SCREENWIDTH) / 2) - 64,
 				  static_cast<float>(anHge->System_GetState(HGE_SCREENHEIGHT) / 2) - 64);
 	myGrassTile.Init(anHge, "res/textures/spritesheet.png", 10, 10);
+	
 	for (int i = 0; i < 100; ++i)
 	{
-		RPG::Tile tempTile;
-		myGrassTiles.push_back(tempTile);
+		myGrassTiles.push_back(&myGrassTile);
 	}
-	int x = 0;
-	int y = 0;
+	float x = 0;
+	float y = 0;
 	for (unsigned int i = 0; i < myGrassTiles.size(); ++i)
 	{
-		myGrassTiles.at(i).Init(anHge, "res/textures/spritesheet.png", static_cast<float>(x* 16), static_cast<float>(y * 16));
+		myGrassTiles.at(i)->SetPosition(x * 16, y * 16);
 		++x;
 		if (x >= anHge->System_GetState(HGE_SCREENWIDTH) / 16)
 		{
@@ -39,8 +39,12 @@ void Game::Init(HGE *anHge, CU::InputHandler *anInputHandler)
 	}
 }
 
-void Game::Update(float aDeltaTime)
+bool Game::Update(float aDeltaTime)
 {
+	if (myInput->GetKeyIsDown(DIK_ESCAPE) == true)
+	{
+		return true;
+	}
 	if (myInput->GetKeyIsDown(DIK_W) == true)
 	{
 		myPlayer.SetVelocity(0, -2);
@@ -62,14 +66,15 @@ void Game::Update(float aDeltaTime)
 		myPlayer.SetVelocity(0, 0);
 	}
 	myPlayer.Update(aDeltaTime);
+	return false;
 }
 
 void Game::Render()
 {
 	myGrassTile.Render();
-	for (unsigned int x = 0; x < myGrassTiles.size(); ++x)
+	for (unsigned int i = 0; i < myGrassTiles.size(); ++i)
 	{
-		myGrassTiles.at(x).Render();
+		myGrassTiles.at(i)->Render();
 	}
 	myPlayer.Render();
 	

@@ -1,5 +1,9 @@
 #include "Window.h"
 
+const float locScale = 2.0f;
+const unsigned int locScreenWidth = static_cast<unsigned int>(480 * locScale);
+const unsigned int locScreenHeight = locScreenWidth / 16 * 9;
+
 Window::Window()
 {
 	myHge = nullptr;
@@ -12,15 +16,14 @@ Window::~Window()
 
 }
 
-void Window::Init(HINSTANCE aInstanceHandler)
+void Window::Init(HINSTANCE aInstanceHandler, bool aRunningCheck)
 {
-	const int screenWidth = 1024;
-	const int screenHeight = screenWidth / 16 * 9;
+	myRunningCheck = aRunningCheck;
 	myHge = hgeCreate(HGE_VERSION);
 	myHge->System_SetState(HGE_WINDOWED, true);
 	myHge->System_SetState(HGE_USESOUND, false);
-	myHge->System_SetState(HGE_SCREENWIDTH, screenWidth);
-	myHge->System_SetState(HGE_SCREENHEIGHT, screenHeight);
+	myHge->System_SetState(HGE_SCREENWIDTH, locScreenWidth);
+	myHge->System_SetState(HGE_SCREENHEIGHT, locScreenHeight);
 	myHge->System_SetState(HGE_SCREENBPP, 32);
 	myHge->System_SetState(HGE_TITLE, "Unnamed RPG Alpha v0.1");
 
@@ -40,14 +43,22 @@ void Window::Init(HINSTANCE aInstanceHandler)
 	myRunningCheck = true;
 }
 
-void Window::Run()
+bool Window::Run()
 {
-	while (myRunningCheck == true)
+	if (myRunningCheck == true)
 	{
 		Update();
 		Render();
 	}
-	
+	else
+	{
+		return false;
+	}
+	return true;
+}
+
+void Window::Shutdown()
+{
 	myHge->System_Shutdown();
 	myHge->Release();
 }
@@ -57,12 +68,11 @@ void Window::Update()
 	myInput->Update();
 	myTimer.UpdateTimers();
 	myDelta = static_cast<float>(myTimer.GetDeltaTime() * 0.0001);
-	if (myInput->GetKeyIsDown(DIK_ESCAPE) == true)
+	if (myGame.Update(myDelta) == true)
 	{
 		myRunningCheck = false;
 		return;
 	}
-	myGame.Update(myDelta);
 	myInput->CapturePreviousInput();
 }
 
@@ -80,7 +90,30 @@ void Window::Render()
 int WINAPI WinMain(HINSTANCE aInstanceHandler, HINSTANCE, LPSTR, int)
 {
 	Window window;
-	window.Init(aInstanceHandler);
-	window.Run();
+	bool runningFlag = true;
+	window.Init(aInstanceHandler, runningFlag);
+	MSG windowsMessage;
+	while (runningFlag == true)
+	{
+		// check for messages
+		if (PeekMessage(&windowsMessage, NULL, 0, 0, PM_REMOVE))
+		{
+			// handle or dispatch messages
+			if (windowsMessage.message == WM_QUIT)
+			{
+				break;
+			}
+			TranslateMessage(&windowsMessage);
+			DispatchMessage(&windowsMessage);
+		}
+		else
+		{
+			if (window.Run() == false)
+			{
+				runningFlag = false;
+			}
+		}
+	}
+	window.Shutdown();
 	return 0;
 }

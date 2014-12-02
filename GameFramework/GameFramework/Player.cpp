@@ -17,7 +17,7 @@ void RPG::Player::Init(HGE *aHgePointer, std::string aFileName, float aXVelocity
 	SetPosition(aXPosition, aYPosition);
 	SetVelocity(aXVelocity, aYVelocity);
 	HTEXTURE texture = aHgePointer->Texture_Load(aFileName.c_str());
-	mySprite = new Sprite(texture, 0, 0, 64, 64);
+	mySprite = new hgeSprite(texture, 0, 0, 64, 64);
 	aHgePointer->Target_Free(texture);
 }
 

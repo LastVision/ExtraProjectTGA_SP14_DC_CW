@@ -9,10 +9,11 @@ public:
 	Window();
 	~Window();
 
-	void Init(HINSTANCE);
-	void Run();
+	void Init(HINSTANCE, bool aRunningCheck);
+	bool Run();
 	void Update();
 	void Render();
+	void Shutdown();
 private:
 	HGE *myHge;
 	CU::InputHandler *myInput;
