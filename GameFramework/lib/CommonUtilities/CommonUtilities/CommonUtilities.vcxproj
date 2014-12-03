@@ -66,8 +66,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DL_Assert.h" />
+    <ClInclude Include="DL_Debug.h" />
+    <ClInclude Include="DL_StackWalker.h" />
     <ClInclude Include="GrowingArray.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="StackWalker.h" />
     <ClInclude Include="StaticArray.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Timer.h" />
@@ -83,7 +87,16 @@
     <ClInclude Include="VectorOnStack.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DL_Debug.cpp" />
+    <ClCompile Include="DL_StackWalker.cpp">
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</TreatWarningAsError>
+    </ClCompile>
     <ClCompile Include="InputHandler.cpp" />
+    <ClCompile Include="StackWalker.cpp">
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</TreatWarningAsError>
+    </ClCompile>
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TimerManager.cpp" />

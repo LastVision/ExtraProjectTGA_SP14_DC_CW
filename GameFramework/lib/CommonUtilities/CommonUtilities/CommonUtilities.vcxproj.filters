@@ -43,6 +43,15 @@
     <Filter Include="Utilities\Arrays">
       <UniqueIdentifier>{7f1f48fc-e102-4ebf-ae63-64a2c0850709}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{5e979db4-5083-45a0-aff4-7d6b8774d87d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug\Header Files">
+      <UniqueIdentifier>{1d36f882-83b9-4aa0-a8c6-f5b45341fb8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug\Source Files">
+      <UniqueIdentifier>{98abd811-1234-40d6-ac33-b97d3f991093}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities.h">
@@ -90,6 +99,18 @@
     <ClInclude Include="Vector4decl.h">
       <Filter>Math\Vector</Filter>
     </ClInclude>
+    <ClInclude Include="DL_Debug.h">
+      <Filter>Debug\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DL_Assert.h">
+      <Filter>Debug\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DL_StackWalker.h">
+      <Filter>Debug\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StackWalker.h">
+      <Filter>Debug\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utilities.cpp">
@@ -106,6 +127,15 @@
     </ClCompile>
     <ClCompile Include="InputHandler.cpp">
       <Filter>Utilities\Input\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DL_Debug.cpp">
+      <Filter>Debug\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DL_StackWalker.cpp">
+      <Filter>Debug\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StackWalker.cpp">
+      <Filter>Debug\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
