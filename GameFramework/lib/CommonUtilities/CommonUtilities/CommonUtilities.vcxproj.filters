@@ -52,6 +52,15 @@
     <Filter Include="Debug\Source Files">
       <UniqueIdentifier>{98abd811-1234-40d6-ac33-b97d3f991093}</UniqueIdentifier>
     </Filter>
+    <Filter Include="XML">
+      <UniqueIdentifier>{3566aed8-286e-4d1f-a055-9f77fb7c11e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML\Header Files">
+      <UniqueIdentifier>{750c0571-02a7-4e03-9f34-0d5a423744b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML\Source Files">
+      <UniqueIdentifier>{87703cee-f4e8-4107-b972-85753acfd420}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities.h">
@@ -111,6 +120,9 @@
     <ClInclude Include="StackWalker.h">
       <Filter>Debug\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>XML\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utilities.cpp">
@@ -136,6 +148,9 @@
     </ClCompile>
     <ClCompile Include="StackWalker.cpp">
       <Filter>Debug\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>XML\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
