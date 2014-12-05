@@ -43,9 +43,9 @@ namespace CommonUtilities
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::VectorOnStack(const VectorOnStack &aVectorOnStack)
 	{
-		mySize = Size;
+		mySize = aVectorOnStack.mySize;
 		myCounter = 0;
-		myUseSafeModeFlag = UseSafeModeFlag;
+		myUseSafeModeFlag = aVectorOnStack.myUseSafeModeFlag;
 		this->operator=(aVectorOnStack);
 	}
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
@@ -58,6 +58,8 @@ namespace CommonUtilities
 	VectorOnStack<Type, Size, CountType, UseSafeModeFlag>& VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::operator=(const VectorOnStack &aVectorOnStack)
 	{
 		assert(this->mySize == aVectorOnStack.mySize && "The arrays are not of the same size");
+		myUseSafeModeFlag = aVectorOnStack.myUseSafeModeFlag;
+		mySize = aVectorOnStack.mySize;
 		if (myUseSafeModeFlag == true)
 		{
 			for (int i = 0; i < this->mySize; ++i)
@@ -67,7 +69,7 @@ namespace CommonUtilities
 		}
 		else
 		{
-			memcpy(this->myData, aVectorOnStack.myData, mySize);
+			memcpy(this->myData, aVectorOnStack.myData, sizeof(aVectorOnStack.myData));
 		}
 		myCounter = aVectorOnStack.myCounter;
 		return *this;

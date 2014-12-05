@@ -72,7 +72,7 @@ namespace CommonUtilities
 	template <typename Type, int Size>
 	inline void StaticArray<Type, Size>::DeleteAll()
 	{
-		for (int i = 0; i < this->mySize; ++i)
+		for (int i = 0; i < this->mySize - 1; ++i)
 		{
 			delete myData[i];
 			myData[i] = nullptr;
