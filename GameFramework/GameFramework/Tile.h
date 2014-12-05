@@ -10,7 +10,7 @@ namespace RPG
 		Tile();
 		~Tile();
 
-		void Init(HGE *aHgePointer, std::string aFileName, float aXPosition, float aYPosition, float aXScale, float aYScale);
+		void Init(HGE *aHgePointer, std::string aFileName, float aXPosition, float aYPosition, float aXScale, float aYScale, float aImgRow, float aImgCol, float aImgSize);
 		void Update(float aDeltaTime);
 		void Render();
 

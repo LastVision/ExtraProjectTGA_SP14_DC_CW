@@ -11,11 +11,11 @@ RPG::Tile::~Tile()
 	mySprite = nullptr;
 }
 
-void RPG::Tile::Init(HGE *aHgePointer, std::string aFileName, float aXPosition, float aYPosition, float aXScale, float aYScale)
+void RPG::Tile::Init(HGE *aHgePointer, std::string aFileName, float aXPosition, float aYPosition, float aXScale, float aYScale, float aImgRow, float aImgCol, float aImgSize)
 {
 	SetPosition(aXPosition, aYPosition);
 	SetScale(aXScale, aYScale);
-	mySprite = new hgeSprite(aHgePointer->Texture_Load(aFileName.c_str()), 0, 0, 16, 16);
+	mySprite = new hgeSprite(aHgePointer->Texture_Load(aFileName.c_str()), aImgCol * aImgSize,aImgRow *aImgSize, aImgSize, aImgSize);
 }
 
 void RPG::Tile::Update(float aDeltaTime)

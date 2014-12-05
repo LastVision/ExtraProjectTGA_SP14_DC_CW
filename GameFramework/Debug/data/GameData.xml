@@ -10,32 +10,57 @@
 			<map width = "16" height = "16">
 				<tiles>
 					<tile id = "1">
-						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
+						<gfx file="res/textures/tiles/tileSheet.png" row ="1" col="0" size ="16" />
 						<scale x = "2" y = "2" />
 						<position x="0" y="0" />
 					</tile>
 					<tile id = "2">
-						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
+						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="1" size ="16" />
 						<scale x = "2" y = "2" />
 						<position x="16" y="0" />
 					</tile>
 					<tile id = "3">
 						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
 						<scale x = "2" y = "2" />
-						<position x="16" y="16" />
+						<position x="2" y="0" />
 					</tile>
 					<tile id = "4">
-						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
+						<gfx file="res/textures/tiles/tileSheet.png" row ="1" col="1" size ="16" />
 						<scale x = "2" y = "2" />
-						<position x="0" y="16" />
+						<position x="4" y="0" />
 					</tile>
 					<tile id = "5">
 						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
 						<scale x = "2" y = "2" />
-						<position x="8" y="8" />
+						<position x="6" y="0" />
+					</tile>
+					<tile id = "6">
+						<gfx file="res/textures/tiles/tileSheet.png" row ="2" col="0" size ="16" />
+						<scale x = "2" y = "2" />
+						<position x="8" y="0" />
+					</tile>
+					<tile id = "7">
+						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
+						<scale x = "2" y = "2" />
+						<position x="10" y="0" />
+					</tile>
+					<tile id = "8">
+						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="2" size ="16" />
+						<scale x = "2" y = "2" />
+						<position x="12" y="0" />
+					</tile>
+					<tile id = "9">
+						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
+						<scale x = "2" y = "2" />
+						<position x="14" y="0" />
 					</tile>
 				</tiles>
 			</map>
+			<trigger expression="">
+				<event type="">
+					Commands
+				</event>
+			</trigger>
 		</level>
 	</game>
 </root>

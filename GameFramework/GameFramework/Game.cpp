@@ -31,10 +31,13 @@ void Game::Init(HGE *anHge, CU::InputHandler *anInputHandler)
 		{
 			myTiles.Add(RPG::Tile());
 			myTiles[initTimes].Init(anHge, e->FirstChildElement("gfx")->Attribute("file"),
-									e->FirstChildElement("position")->FloatAttribute("x") * (16 + e->FirstChildElement("scale")->FloatAttribute("x")),
-									e->FirstChildElement("position")->FloatAttribute("y") * (16 + e->FirstChildElement("scale")->FloatAttribute("y")),
+									e->FirstChildElement("position")->FloatAttribute("x") * (e->FirstChildElement("gfx")->FloatAttribute("size") * e->FirstChildElement("scale")->FloatAttribute("x")),
+									e->FirstChildElement("position")->FloatAttribute("y") * (e->FirstChildElement("gfx")->FloatAttribute("size") * e->FirstChildElement("scale")->FloatAttribute("y")),
 									e->FirstChildElement("scale")->FloatAttribute("x"),
-									e->FirstChildElement("scale")->FloatAttribute("y"));
+									e->FirstChildElement("scale")->FloatAttribute("y"),
+									e->FirstChildElement("gfx")->FloatAttribute("row"),
+									e->FirstChildElement("gfx")->FloatAttribute("col"),
+									e->FirstChildElement("gfx")->FloatAttribute("size"));
 			++initTimes;
 		}
 		initTimes = 0;
