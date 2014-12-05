@@ -230,7 +230,7 @@ namespace CommonUtilities
 			delete myData[i];
 			myData[i] = nullptr;
 		}
-		RemoveAll();
+		myCurrentSize = 0;
 	}
 	template <typename ObjectType, typename SizeType = unsigned short>
 	void GrowingArray<ObjectType, SizeType>::Optimize()

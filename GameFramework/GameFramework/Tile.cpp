@@ -11,12 +11,11 @@ RPG::Tile::~Tile()
 	mySprite = nullptr;
 }
 
-void RPG::Tile::Init(HGE *aHgePointer, std::string aFileName, float aXPosition, float aYPosition)
+void RPG::Tile::Init(HGE *aHgePointer, std::string aFileName, float aXPosition, float aYPosition, float aXScale, float aYScale)
 {
 	SetPosition(aXPosition, aYPosition);
-	HTEXTURE texture = aHgePointer->Texture_Load(aFileName.c_str());
-	mySprite = new hgeSprite(texture, 0, 0, 16, 16);
-	aHgePointer->Target_Free(texture);
+	SetScale(aXScale, aYScale);
+	mySprite = new hgeSprite(aHgePointer->Texture_Load(aFileName.c_str()), 0, 0, 16, 16);
 }
 
 void RPG::Tile::Update(float aDeltaTime)
@@ -27,8 +26,7 @@ void RPG::Tile::Update(float aDeltaTime)
 
 void RPG::Tile::Render()
 {
-	mySprite->SetZ(0);
-	mySprite->Render(myPosition.myX, myPosition.myY);
+	mySprite->RenderEx(myPosition.myX, myPosition.myY, 0, myScale.myY, myScale.myX);
 }
 
 void RPG::Tile::SetPosition(const Position &aPosition)
@@ -45,4 +43,20 @@ void RPG::Tile::SetPosition(const float aXPosition, const float aYPosition)
 const RPG::Position& RPG::Tile::GetPosition() const
 {
 	return myPosition;
+}
+
+void RPG::Tile::SetScale(const Position &aScale)
+{
+	myScale = aScale;
+}
+
+void RPG::Tile::SetScale(const float aXScale, const float aYScale)
+{
+	myScale.myX = aXScale;
+	myScale.myY = aYScale;
+}
+
+const RPG::Position& RPG::Tile::GetScale() const
+{
+	return myScale;
 }

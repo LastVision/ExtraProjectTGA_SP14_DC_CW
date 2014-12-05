@@ -3,7 +3,9 @@
 Game::Game()
 {
 	myInput = nullptr;
-	
+	myPlayers.Init(1, true);
+	myTiles.Init(0, true);
+	myDoc.LoadFile("data/GameData.xml");
 }
 
 Game::~Game()
@@ -14,27 +16,35 @@ Game::~Game()
 
 void Game::Init(HGE *anHge, CU::InputHandler *anInputHandler)
 {
-	myGrassTiles.reserve((anHge->System_GetState(HGE_SCREENWIDTH) * anHge->System_GetState(HGE_SCREENHEIGHT))/16);
 	myInput = anInputHandler;
-	myPlayer.Init(anHge, "res/textures/hero.png", 0.0f, 0.0f, 
-				  static_cast<float>(anHge->System_GetState(HGE_SCREENWIDTH) / 2) - 64,
-				  static_cast<float>(anHge->System_GetState(HGE_SCREENHEIGHT) / 2) - 64);
-	myGrassTile.Init(anHge, "res/textures/spritesheet.png", 10, 10);
-	
-	for (int i = 0; i < 100; ++i)
+	tinyxml2::XMLElement *rootElement = myDoc.FirstChildElement("root");
+	tinyxml2::XMLElement *gameElement = rootElement->FirstChildElement("game");
+	tinyxml2::XMLElement *levelElement = gameElement->FirstChildElement("level");
+	std::string level = levelElement->Attribute("name");
+	if (level == "tutorial")
 	{
-		myGrassTiles.push_back(&myGrassTile);
-	}
-	float x = 0;
-	float y = 0;
-	for (unsigned int i = 0; i < myGrassTiles.size(); ++i)
-	{
-		myGrassTiles.at(i)->SetPosition(x * 16, y * 16);
-		++x;
-		if (x >= anHge->System_GetState(HGE_SCREENWIDTH) / 16)
+		tinyxml2::XMLElement *map = levelElement->FirstChildElement("map");
+		myTiles.ReInit(static_cast<unsigned short>(map->IntAttribute("width") * map->IntAttribute("height")), true);
+		unsigned short initTimes = 0;
+		tinyxml2::XMLElement *tiles = map->FirstChildElement("tiles");
+		for (tinyxml2::XMLElement *e = tiles->FirstChildElement("tile"); e != nullptr; e = e->NextSiblingElement("tile"))
 		{
-			x = 0;
-			++y;
+			myTiles.Add(RPG::Tile());
+			myTiles[initTimes].Init(anHge, e->FirstChildElement("gfx")->Attribute("file"),
+									e->FirstChildElement("position")->FloatAttribute("x") * (16 + e->FirstChildElement("scale")->FloatAttribute("x")),
+									e->FirstChildElement("position")->FloatAttribute("y") * (16 + e->FirstChildElement("scale")->FloatAttribute("y")),
+									e->FirstChildElement("scale")->FloatAttribute("x"),
+									e->FirstChildElement("scale")->FloatAttribute("y"));
+			++initTimes;
+		}
+		initTimes = 0;
+		for (tinyxml2::XMLElement *e = levelElement->FirstChildElement("player"); e != nullptr; e = e->NextSiblingElement("player"))
+		{
+			myPlayers.Add(RPG::Player());
+			myPlayers[initTimes].Init(anHge, e->FirstChildElement("gfx")->Attribute("file"), 0, 0,
+									  e->FirstChildElement("position")->FloatAttribute("x") * 16,
+									  e->FirstChildElement("position")->FloatAttribute("y") * 16);
+			++initTimes;
 		}
 	}
 }
@@ -45,37 +55,41 @@ bool Game::Update(float aDeltaTime)
 	{
 		return true;
 	}
-	if (myInput->GetKeyIsDown(DIK_W) == true)
+	for (int i = 0; i < myPlayers.Size(); ++i)
 	{
-		myPlayer.SetVelocity(0, -2);
+		if (myInput->GetKeyIsDown(DIK_W) == true)
+		{
+			myPlayers[i].SetVelocity(0, -2);
+		}
+		else if (myInput->GetKeyIsDown(DIK_A) == true)
+		{
+			myPlayers[i].SetVelocity(-2, 0);
+		}
+		else if (myInput->GetKeyIsDown(DIK_S) == true)
+		{
+			myPlayers[i].SetVelocity(0, 2);
+		}
+		else if (myInput->GetKeyIsDown(DIK_D) == true)
+		{
+			myPlayers[i].SetVelocity(2, 0);
+		}
+		else
+		{
+			myPlayers[i].SetVelocity(0, 0);
+		}
+		myPlayers[i].Update(aDeltaTime);
 	}
-	else if (myInput->GetKeyIsDown(DIK_A) == true)
-	{
-		myPlayer.SetVelocity(-2, 0);
-	}
-	else if (myInput->GetKeyIsDown(DIK_S) == true)
-	{
-		myPlayer.SetVelocity(0, 2);
-	}
-	else if (myInput->GetKeyIsDown(DIK_D) == true)
-	{
-		myPlayer.SetVelocity(2, 0);
-	}
-	else
-	{
-		myPlayer.SetVelocity(0, 0);
-	}
-	myPlayer.Update(aDeltaTime);
 	return false;
 }
 
 void Game::Render()
 {
-	myGrassTile.Render();
-	for (unsigned int i = 0; i < myGrassTiles.size(); ++i)
+	for (int i = 0; i < myTiles.Size(); ++i)
 	{
-		myGrassTiles.at(i)->Render();
+		myTiles[i].Render();
 	}
-	myPlayer.Render();
-	
+	for (int i = 0; i < myPlayers.Size(); ++i)
+	{
+		myPlayers[i].Render();
+	}
 }

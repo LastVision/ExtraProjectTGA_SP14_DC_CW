@@ -169,7 +169,7 @@ namespace CommonUtilities
 			delete myData[i];
 			myData[i] = nullptr;
 		}
-		Clear();
+		myCounter = 0;
 	}
 	template<typename Type, int Size, typename CountType = unsigned short, bool UseSafeModeFlag = true>
 	__forceinline CountType VectorOnStack<Type, Size, CountType, UseSafeModeFlag>::GetSize() const

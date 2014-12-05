@@ -2,6 +2,8 @@
 #include <hge.h>
 #include <TimerManager.h>
 #include <InputHandler.h>
+#include <GrowingArray.h>
+#include <tinyxml2.h>
 #include <vector>
 #include "Player.h"
 #include "Tile.h"
@@ -15,9 +17,9 @@ public:
 	bool Update(float aDeltaTime);
 	void Render();
 private:
+	tinyxml2::XMLDocument myDoc;
 	CU::InputHandler *myInput;
-	RPG::Player myPlayer;
-	RPG::Tile myGrassTile;
-	std::vector<RPG::Tile*> myGrassTiles;
+	CU::GrowingArray<RPG::Player, int> myPlayers;
+	CU::GrowingArray<RPG::Tile, int> myTiles;
 };
 
