@@ -43,7 +43,7 @@
 						<position x="2" y="1" />
 					</tile>
 					<tile id = "7">
-						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
+						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="1" size ="16" />
 						<scale x = "2" y = "2" />
 						<position x="2" y="2" />
 					</tile>
@@ -56,6 +56,26 @@
 						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
 						<scale x = "2" y = "2" />
 						<position x="0" y="2" />
+					</tile>
+					<tile id = "9">
+						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
+						<scale x = "2" y = "2" />
+						<position x="3" y="0" />
+					</tile>
+					<tile id = "9">
+						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
+						<scale x = "2" y = "2" />
+						<position x="3" y="1" />
+					</tile>
+					<tile id = "9">
+						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
+						<scale x = "2" y = "2" />
+						<position x="3" y="2" />
+					</tile>
+					<tile id = "9">
+						<gfx file="res/textures/tiles/tileSheet.png" row ="0" col="0" size ="16" />
+						<scale x = "2" y = "2" />
+						<position x="17" y="3" />
 					</tile>
 				</tiles>
 			</map>

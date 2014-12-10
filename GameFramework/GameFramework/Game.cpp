@@ -5,6 +5,7 @@ Game::Game()
 	myInput = nullptr;
 	myPlayers.Init(1, true);
 	myTiles.Init(0, true);
+	myTileTextures.Init(1, true);
 	myDoc.LoadFile("data/GameData.xml");
 }
 
@@ -26,6 +27,17 @@ void Game::Init(HGE *anHge, CU::InputHandler *anInputHandler)
 		tinyxml2::XMLElement *map = levelElement->FirstChildElement("map");
 		myTiles.ReInit(static_cast<unsigned short>(map->IntAttribute("width") * map->IntAttribute("height")), true);
 		unsigned short initTimes = 0;
+		tinyxml2::XMLElement *tileTextures = map->FirstChildElement("tileTextures");
+		for (tinyxml2::XMLElement *e = tileTextures->FirstChildElement("texture"); e != nullptr; e = e->NextSiblingElement("texture"))
+		{
+			RPG::TileTexture tempTexture;
+			tempTexture.myId = e->IntAttribute("id");
+			tempTexture.myRow = e->FloatAttribute("row");
+			tempTexture.myCol = e->FloatAttribute("col");
+			tempTexture.mySize = e->FloatAttribute("size");
+			tempTexture.myFile = e->Attribute("file");
+			myTileTextures.Add(tempTexture);
+		}
 		tinyxml2::XMLElement *tiles = map->FirstChildElement("tiles");
 		for (tinyxml2::XMLElement *e = tiles->FirstChildElement("tile"); e != nullptr; e = e->NextSiblingElement("tile"))
 		{

@@ -82,7 +82,7 @@ namespace CommonUtilities
 		myUseSafeModeFlag = aGrowingArray.myUseSafeModeFlag;
 		if (myUseSafeModeFlag == true)
 		{
-			for (int i = 0; i < aGrowingArray.myCurrentSize; ++i)
+			for (SizeType i = 0; i < aGrowingArray.myCurrentSize; ++i)
 			{
 				this->myData[i] = aGrowingArray.myData[i];
 			}

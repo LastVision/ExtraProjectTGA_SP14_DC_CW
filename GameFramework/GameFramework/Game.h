@@ -20,6 +20,7 @@ private:
 	tinyxml2::XMLDocument myDoc;
 	CU::InputHandler *myInput;
 	CU::GrowingArray<RPG::Player, int> myPlayers;
+	CU::GrowingArray<RPG::TileTexture, int> myTileTextures;
 	CU::GrowingArray<RPG::Tile, int> myTiles;
 };
 

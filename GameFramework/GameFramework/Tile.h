@@ -4,6 +4,14 @@
 #include "Player.h"
 namespace RPG
 {
+	struct TileTexture
+	{
+		float myRow;
+		float myCol;
+		float mySize;
+		int myId;
+		std::string myFile;
+	};
 	class Tile
 	{
 	public:
