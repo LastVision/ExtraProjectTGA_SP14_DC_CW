@@ -1,4 +1,5 @@
 #include "Tile.h"
+#include "Utilities.h"
 
 RPG::Tile::Tile()
 {
@@ -15,7 +16,24 @@ void RPG::Tile::Init(HGE *aHgePointer, std::string aFileName, float aXPosition, 
 {
 	SetPosition(aXPosition, aYPosition);
 	SetScale(aXScale, aYScale);
-	mySprite = new hgeSprite(aHgePointer->Texture_Load(aFileName.c_str()), aImgCol * aImgSize,aImgRow *aImgSize, aImgSize, aImgSize);
+	mySprite = new hgeSprite(aHgePointer->Texture_Load(aFileName.c_str()), aImgCol * aImgSize, aImgRow *aImgSize, aImgSize, aImgSize);
+}
+
+void RPG::Tile::LoadAndInit(HGE *aHgePointer, tinyxml2::XMLElement *aNode)
+{
+	float row = 0;
+	float col = 0;
+	float size = 0;
+	TINY_CHECKQUERY(aNode->QueryFloatAttribute("row", &row));
+	TINY_CHECKQUERY(aNode->QueryFloatAttribute("col", &col));
+	TINY_CHECKQUERY(aNode->QueryFloatAttribute("size", &size));
+	mySprite = new hgeSprite(aHgePointer->Texture_Load(aNode->Attribute("file")), row * size, col * size, size, size);
+
+	TINY_CHECKQUERY(aNode->QueryFloatAttribute("xPos", &myPosition.myX));
+	TINY_CHECKQUERY(aNode->QueryFloatAttribute("yPos", &size));
+
+	TINY_CHECKQUERY(aNode->QueryFloatAttribute("xScale", &size));
+	TINY_CHECKQUERY(aNode->QueryFloatAttribute("yScale", &size));
 }
 
 void RPG::Tile::Update(float aDeltaTime)

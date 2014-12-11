@@ -1,5 +1,6 @@
 #pragma once
 #include <hgesprite.h>
+#include <tinyxml2.h>
 #include <string>
 #include "Player.h"
 namespace RPG
@@ -19,6 +20,7 @@ namespace RPG
 		~Tile();
 
 		void Init(HGE *aHgePointer, std::string aFileName, float aXPosition, float aYPosition, float aXScale, float aYScale, float aImgRow, float aImgCol, float aImgSize);
+		void LoadAndInit(HGE *aHgePointer, tinyxml2::XMLElement *aNode);
 		void Update(float aDeltaTime);
 		void Render();
 

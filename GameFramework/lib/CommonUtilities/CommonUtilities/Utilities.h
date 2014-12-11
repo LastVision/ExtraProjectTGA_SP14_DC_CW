@@ -1,6 +1,5 @@
 #pragma once
-namespace CommonUtilities
-{
+#include "DL_Debug.h"
 #define MIN(A,B) (A) < (B)? A:B
 #define MAX(A,B) (A) > (B)? A:B
 #define SAFE_DELETE(POINTER) delete POINTER; POINTER = nullptr;
@@ -12,15 +11,16 @@ namespace CommonUtilities
 #define ERROR_MESSAGE(TEXT) std::cout << "Error: " << (TEXT) << std::endl;
 #define RANDOM_BETWEEN(MINVALUE, MAXVALUE) rand() % (MAXVALUE) + (MINVALUE);
 #define TOGGLE(BOOLVARIABLE) (BOOLVARIABLE == true) ? (BOOLVARIABLE = false):(BOOLVARIABLE = true);
+#define TINY_CHECKQUERY(value) if(value != 0) DL_ASSERT(#value);
 
+namespace CommonUtilities
+{
 	class Utilities
 	{
 	public:
 		Utilities();
 		~Utilities();
 	};
-
-
 };
 namespace CU = CommonUtilities;
 
