@@ -61,6 +61,15 @@
     <Filter Include="XML\Source Files">
       <UniqueIdentifier>{87703cee-f4e8-4107-b972-85753acfd420}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math\Line">
+      <UniqueIdentifier>{9043e1d9-8d9a-49f5-81bb-599e31f2008d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Plane">
+      <UniqueIdentifier>{6b26a08b-bf99-41e1-b311-2eb1140adc77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Matrix">
+      <UniqueIdentifier>{7f9f8323-7b9c-4ffc-81d5-86142eef4413}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities.h">
@@ -122,6 +131,33 @@
     </ClInclude>
     <ClInclude Include="tinyxml2.h">
       <Filter>XML\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Math\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="LineVolume.h">
+      <Filter>Math\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Math\Plane</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneVolume.h">
+      <Filter>Math\Plane</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix33.h">
+      <Filter>Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix44.h">
+      <Filter>Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix33decl.h">
+      <Filter>Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix44decl.h">
+      <Filter>Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Math\Matrix</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

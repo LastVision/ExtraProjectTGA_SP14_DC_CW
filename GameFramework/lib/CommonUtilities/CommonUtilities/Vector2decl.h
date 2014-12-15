@@ -3,6 +3,7 @@ template <typename TYPE>
 class Vector2
 {
 public:
+	Vector2();
 	union
 	{
 		TYPE myX;
@@ -18,3 +19,9 @@ public:
 		TYPE myG;
 	};
 };
+template<typename TYPE>
+Vector2<TYPE>::Vector2()
+{
+	myX = 0;
+	myY = 0;
+}
